@@ -11,7 +11,7 @@ module.exports = async (req, res) => {
     return res.status(400).json({ error: 'Missing name or id' });
   }
 
-  const fileName = `students.json`;
+  const fileName = 'students.json';
 
   let students = [];
 
@@ -33,5 +33,8 @@ module.exports = async (req, res) => {
     addRandomSuffix: false
   });
 
-  res.status(201).json({ message: 'Student added', student: { name, id } });
+  return res.status(201).json({
+    message: 'Student added',
+    student: { name, id }
+  });
 };
